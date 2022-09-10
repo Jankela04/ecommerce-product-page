@@ -5,6 +5,7 @@ import logo from "../assets/logo.svg";
 import cart from "../assets/icon-cart.svg";
 import avatar from "../assets/image-avatar.png";
 import x from "../assets/icon-close.svg";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 const Navbar = () => {
     const [navActive, setNavActive] = useState(false); // for mobile
@@ -12,7 +13,7 @@ const Navbar = () => {
 
     const itemCount = 0;
     return (
-        <>
+        <Router>
             <div className="navbar">
                 <div className="left-side-nav">
                     {navActive && (
@@ -26,11 +27,11 @@ const Navbar = () => {
                                         }}
                                         alt=""
                                     />
-                                    <a href="#">Collections</a>
-                                    <a href="#">Men</a>
-                                    <a href="#">Women</a>
-                                    <a href="#">About</a>
-                                    <a href="#">Contact</a>
+                                    <Link to="/">Collections</Link>
+                                    <Link to="/">Men</Link>
+                                    <Link to="/">Women</Link>
+                                    <Link to="/">About</Link>
+                                    <Link to="/">Contact</Link>
                                 </div>
                             </div>
                             <div
@@ -42,7 +43,7 @@ const Navbar = () => {
                         </>
                     )}
                     <img
-                        className="mbl-menu"
+                        className="mbl-menu-icon"
                         onClick={() => {
                             setNavActive(true);
                         }}
@@ -50,6 +51,13 @@ const Navbar = () => {
                         alt=""
                     />
                     <img src={logo} alt="" />
+                    <div className="desktop-nav-items">
+                        <Link to="/">Collections</Link>
+                        <Link to="/">Men</Link>
+                        <Link to="/">Women</Link>
+                        <Link to="/">About</Link>
+                        <Link to="/">Contact</Link>
+                    </div>
                 </div>
 
                 <div className="right-side-nav">
@@ -77,7 +85,7 @@ const Navbar = () => {
                     </div>
                 </div>
             )}
-        </>
+        </Router>
     );
 };
 

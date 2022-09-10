@@ -5,6 +5,9 @@
     margin: 0;
     padding: 0;
 }
+.desktop-nav-items {
+    display: none;
+}
 
 .dsk {
     display: none;
@@ -16,7 +19,7 @@
     align-items: center;
 
     .left-side-nav {
-        .mbl-menu {
+        .mbl-menu-icon {
             margin-left: 1em;
         }
         img {
@@ -217,7 +220,26 @@
     }
 }
 @media screen and (min-width: 1024px) {
-    .mbl-menu {
+    .mbl-menu-icon {
         display: none;
+    }
+
+    .desktop-nav-items {
+        display: flex;
+    }
+
+    .navbar {
+        .left-side-nav {
+            display: flex;
+            align-items: center;
+            img {
+                margin-right: 2em;
+            }
+            .desktop-nav-items {
+                Link {
+                    color: black;
+                }
+            }
+        }
     }
 }
