@@ -225,10 +225,11 @@
     }
 
     .desktop-nav-items {
-        display: flex;
+        display: block;
     }
 
     .navbar {
+        padding-inline: 6em;
         .left-side-nav {
             display: flex;
             align-items: center;
@@ -236,8 +237,16 @@
                 margin-right: 2em;
             }
             .desktop-nav-items {
-                Link {
-                    color: black;
+                .dsk-item {
+                    color: gray;
+                    text-decoration: none;
+                    font-family: "Kumbh Sans", sans-serif;
+                    font-weight: 700;
+                    margin-inline: 0.5em;
+                    cursor: pointer;
+                    &:hover {
+                        color: hsl(26, 100%, 55%);
+                    }
                 }
             }
         }
