@@ -3,11 +3,8 @@ import "./styles/app.css";
 import Navbar from "./components/Navbar";
 import ImageSlider from "./components/ImageSlider";
 import cart from "./assets/icon-cart.svg";
-import useWindowDimensions from "./features/useWindowDimensions";
 
 function App() {
-    const { width } = useWindowDimensions();
-
     const count = 0;
     return (
         <div className="App">

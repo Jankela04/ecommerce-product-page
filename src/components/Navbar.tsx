@@ -5,13 +5,10 @@ import logo from "../assets/logo.svg";
 import cart from "../assets/icon-cart.svg";
 import avatar from "../assets/image-avatar.png";
 import x from "../assets/icon-close.svg";
-import useWindowDimensions from "../features/useWindowDimensions";
 
 const Navbar = () => {
-    const [navActive, setNavActive] = useState(false);
+    const [navActive, setNavActive] = useState(false); // for mobile
     const [cartActive, setCartActive] = useState(false);
-
-    const { width } = useWindowDimensions();
 
     const itemCount = 0;
     return (
@@ -44,21 +41,17 @@ const Navbar = () => {
                             ></div>
                         </>
                     )}
-                    {width < 1000 && (
-                        <>
-                            <img
-                                className="mbl-menu"
-                                onClick={() => {
-                                    setNavActive(true);
-                                }}
-                                src={menu}
-                                alt=""
-                            />{" "}
-                        </>
-                    )}
-
+                    <img
+                        className="mbl-menu"
+                        onClick={() => {
+                            setNavActive(true);
+                        }}
+                        src={menu}
+                        alt=""
+                    />
                     <img src={logo} alt="" />
                 </div>
+
                 <div className="right-side-nav">
                     <img
                         src={cart}
