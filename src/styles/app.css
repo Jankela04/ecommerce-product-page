@@ -289,9 +289,10 @@
     display: none;
   }
   .desktop-nav-items {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: block;
+  }
+  .navbar {
+    padding-inline: 6em;
   }
   .navbar .left-side-nav {
     display: -webkit-box;
@@ -304,8 +305,16 @@
   .navbar .left-side-nav img {
     margin-right: 2em;
   }
-  .navbar .left-side-nav .desktop-nav-items Link {
-    color: black;
+  .navbar .left-side-nav .desktop-nav-items .dsk-item {
+    color: gray;
+    text-decoration: none;
+    font-family: "Kumbh Sans", sans-serif;
+    font-weight: 700;
+    margin-inline: 0.5em;
+    cursor: pointer;
+  }
+  .navbar .left-side-nav .desktop-nav-items .dsk-item:hover {
+    color: #ff7d1a;
   }
 }
 /*# sourceMappingURL=app.css.map */

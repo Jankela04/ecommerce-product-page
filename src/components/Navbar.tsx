@@ -52,11 +52,21 @@ const Navbar = () => {
                     />
                     <img src={logo} alt="" />
                     <div className="desktop-nav-items">
-                        <Link to="/">Collections</Link>
-                        <Link to="/">Men</Link>
-                        <Link to="/">Women</Link>
-                        <Link to="/">About</Link>
-                        <Link to="/">Contact</Link>
+                        <Link className="dsk-item" to="/">
+                            Collections
+                        </Link>
+                        <Link className="dsk-item" to="/">
+                            Men
+                        </Link>
+                        <Link className="dsk-item" to="/">
+                            Women
+                        </Link>
+                        <Link className="dsk-item" to="/">
+                            About
+                        </Link>
+                        <Link className="dsk-item" to="/">
+                            Contact
+                        </Link>
                     </div>
                 </div>
 
