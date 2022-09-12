@@ -11,6 +11,7 @@ import tbn3 from "../assets/image-product-3-thumbnail.jpg";
 import tbn4 from "../assets/image-product-4-thumbnail.jpg";
 
 const ImageSlider = () => {
+    const [isCarouselActive, setIsCarouselActive] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const images = [
@@ -34,41 +35,59 @@ const ImageSlider = () => {
 
     return (
         <>
-            <div
-                className="slider"
-                style={{ backgroundImage: `url(${images[currentIndex].url})` }}
-            >
+            <div className="left-side-slider">
                 <div
-                    onClick={() => {
-                        previousImg();
+                    className="slider"
+                    style={{
+                        backgroundImage: `url(${images[currentIndex].url})`,
                     }}
-                    className="left-arrow arrow"
                 >
-                    <img src={leftArrow} alt="" />
-                </div>
+                    <div
+                        onClick={() => {
+                            previousImg();
+                        }}
+                        className="left-arrow arrow"
+                    >
+                        <img src={leftArrow} alt="" />
+                    </div>
 
-                <div
-                    onClick={() => {
-                        nextImg();
-                    }}
-                    className="right-arrow arrow"
-                >
-                    <img src={rightArrow} alt="" />
+                    <div
+                        onClick={() => {
+                            nextImg();
+                        }}
+                        className="right-arrow arrow"
+                    >
+                        <img src={rightArrow} alt="" />
+                    </div>
+                </div>
+                <div className="thumbnail-container dsk">
+                    {images.map((img, imgindex) => {
+                        return (
+                            <img
+                                onClick={() => {
+                                    setIsCarouselActive(true);
+                                }}
+                                src={img.thumbnail}
+                                className="thumbnail"
+                                key={imgindex}
+                                alt=""
+                            />
+                        );
+                    })}
                 </div>
             </div>
 
-            <div className="thumbnail-container dsk">
-                {images.map((img, imgindex) => {
-                    return (
-                        <img
-                            src={img.thumbnail}
-                            className="thumbnail"
-                            key={imgindex}
-                            alt=""
-                        />
-                    );
-                })}
-            </div>
+            {isCarouselActive && (
+                <div
+                    onClick={() => {
+                        setIsCarouselActive(false);
+                    }}
+                    className="desktop-carousel"
+                    style={{ color: "white" }}
+                >
+                    OVO TREBA NAMESTITI
+                </div>
+            )}
         </>
     );
 };

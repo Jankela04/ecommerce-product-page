@@ -61,6 +61,18 @@
     }
 
     .right-side-nav {
+        .cart-item-count {
+            background-color: hsl(26, 100%, 55%);
+            font-size: 10px;
+            font-weight: bold;
+            border-radius: 10px;
+            color: white;
+            padding: 1px 8px;
+            font-family: "Kumbh Sans", sans-serif;
+            position: absolute;
+            top: 6px;
+            right: 55px;
+        }
         display: flex;
         gap: 1em;
         img {
@@ -68,6 +80,8 @@
             height: 1.5em;
         }
         .avatar {
+            border: 2px solid transparent;
+            border-radius: 50%;
             margin-right: 1em;
         }
     }
@@ -94,8 +108,49 @@
         background-color: gray;
     }
     .cart-items {
-        p {
-            margin: 1em;
+        padding: 1em;
+        .cart-item {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            .small-img {
+                margin-left: 0;
+                width: 80px;
+                height: 80px;
+            }
+            .text {
+                color: gray;
+                display: flex;
+                flex-direction: column;
+                p {
+                    margin-top: 0.5em;
+                    margin-left: 1em;
+                    b {
+                        margin-left: 0.5em;
+                        color: black;
+                    }
+                }
+            }
+            .clear-btn {
+                cursor: pointer;
+                margin-left: 5em;
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        button {
+            cursor: pointer;
+            margin-top: 2em;
+            width: 100%;
+            height: 5em;
+            color: white;
+            background-color: hsl(26, 100%, 55%);
+            border-radius: 1em;
+            border: none;
+            &:hover {
+                background-color: hsl(26, 100%, 65%);
+            }
         }
     }
 }
@@ -229,7 +284,7 @@
     }
 
     .navbar {
-        padding-inline: 6em;
+        padding: 1em 6em;
         .left-side-nav {
             display: flex;
             align-items: center;
@@ -237,6 +292,7 @@
                 margin-right: 2em;
             }
             .desktop-nav-items {
+                display: flex;
                 .dsk-item {
                     color: gray;
                     text-decoration: none;
@@ -245,10 +301,135 @@
                     margin-inline: 0.5em;
                     cursor: pointer;
                     &:hover {
-                        color: hsl(26, 100%, 55%);
+                        color: black;
+                    }
+                    // &:after {
+                    //     margin: 0;
+                    //     padding: 0;
+                    //     content: "";
+                    //     display: block;
+                    //     width: 100%;
+                    //     height: 2px;
+                    //     background-color: hsl(26, 100%, 55%);
+                    // TODO narandzasta linija da se vidi ispod linka na hover
+                }
+            }
+        }
+        .right-side-nav {
+            display: flex;
+            align-items: center;
+            img {
+                cursor: pointer;
+            }
+            .avatar {
+                margin-left: 1em;
+                width: 2.5em;
+                height: 2.5em;
+                &:hover {
+                    border-color: hsl(26, 100%, 55%);
+                }
+            }
+            .cart-item-count {
+                top: 22px;
+                right: 180px;
+            }
+        }
+    }
+    .cart {
+        width: 30vw;
+        margin-left: 60vw;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+            rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+
+        .empty-cart {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .main {
+        flex-direction: row;
+        width: 80vw;
+        margin: 7em auto;
+        .info {
+            flex: 1;
+            margin-left: 2em;
+            h1 {
+                font-size: 2.5em;
+                font-weight: bold;
+            }
+            p {
+                margin-top: 2em;
+                margin-bottom: 2em;
+            }
+            .prices {
+                flex-direction: column;
+                align-items: flex-start;
+                .discounted {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 0.5em;
+                }
+            }
+            .cta {
+                display: flex;
+                .btns {
+                    flex: 1;
+                    margin-right: 2em;
+                    button:hover {
+                        color: hsl(26, 100%, 65%);
+                        cursor: pointer;
+                    }
+                }
+                .add-to-cart-cta {
+                    cursor: pointer;
+                    flex: 2;
+                    &:hover {
+                        background-color: hsl(26, 100%, 65%);
                     }
                 }
             }
         }
+        .left-side-slider {
+            flex-direction: column;
+            flex-grow: 1;
+            display: flex;
+            flex: 1;
+            .slider {
+                border-radius: 1em;
+                height: 400px;
+                width: 450px;
+                .arrow {
+                    display: none;
+                }
+            }
+            .thumbnail-container {
+                display: flex;
+                flex-direction: row;
+                gap: 1em;
+                img {
+                    width: 100px;
+                    margin-top: 2em;
+                    border-radius: 1em;
+                    cursor: pointer;
+                    &:hover {
+                        opacity: 0.5;
+                    }
+                }
+            }
+        }
+    }
+    .desktop-carousel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.5);
     }
 }
