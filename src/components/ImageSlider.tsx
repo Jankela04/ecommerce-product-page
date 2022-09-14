@@ -9,6 +9,9 @@ import tbn1 from "../assets/image-product-1-thumbnail.jpg";
 import tbn2 from "../assets/image-product-2-thumbnail.jpg";
 import tbn3 from "../assets/image-product-3-thumbnail.jpg";
 import tbn4 from "../assets/image-product-4-thumbnail.jpg";
+import x from "../assets/icon-close.svg";
+
+import ImageGallery from "react-image-gallery";
 
 const ImageSlider = () => {
     const [isCarouselActive, setIsCarouselActive] = useState(false);
@@ -21,6 +24,14 @@ const ImageSlider = () => {
         { url: img4, thumbnail: tbn4 },
     ];
 
+    const handleClick = (event: any) => {
+        event.preventDefault();
+
+        if (event.target === event.currentTarget) {
+            setIsCarouselActive(false);
+        }
+    };
+
     const nextImg = () => {
         currentIndex === images.length - 1
             ? setCurrentIndex(0)
@@ -31,6 +42,16 @@ const ImageSlider = () => {
         currentIndex === 0
             ? setCurrentIndex(images.length - 1)
             : setCurrentIndex(currentIndex - 1);
+    };
+
+    const thumbnailStyle = {
+        border: "2px solid hsl(26, 100%, 55%)",
+        opacity: "0.4",
+        // ! ovo namestiti
+    };
+
+    const carouselStyle = {
+        outline: "4px solid hsl(26, 100%, 55%)",
     };
 
     return (
@@ -64,8 +85,14 @@ const ImageSlider = () => {
                     {images.map((img, imgindex) => {
                         return (
                             <img
+                                style={
+                                    currentIndex === imgindex
+                                        ? thumbnailStyle
+                                        : undefined
+                                }
                                 onClick={() => {
                                     setIsCarouselActive(true);
+                                    setCurrentIndex(imgindex);
                                 }}
                                 src={img.thumbnail}
                                 className="thumbnail"
@@ -77,15 +104,62 @@ const ImageSlider = () => {
                 </div>
             </div>
 
+            {/* =================================================== */}
+
             {isCarouselActive && (
-                <div
-                    onClick={() => {
-                        setIsCarouselActive(false);
-                    }}
-                    className="desktop-carousel"
-                    style={{ color: "white" }}
-                >
-                    OVO TREBA NAMESTITI
+                <div onClick={handleClick} className="desktop-carousel">
+                    <img
+                        src={x}
+                        className="carousel-exit"
+                        onClick={() => {
+                            setIsCarouselActive(false);
+                        }}
+                        alt=""
+                    />
+                    <div
+                        className="carousel"
+                        style={{
+                            backgroundImage: `url(${images[currentIndex].url})`,
+                        }}
+                    >
+                        <div
+                            onClick={() => {
+                                previousImg();
+                            }}
+                            className="left-arrow arrow"
+                        >
+                            <img src={leftArrow} alt="" />
+                        </div>
+
+                        <div
+                            onClick={() => {
+                                nextImg();
+                            }}
+                            className="right-arrow arrow"
+                        >
+                            <img src={rightArrow} alt="" />
+                        </div>
+                    </div>
+                    <div className="carousel-thumbnail">
+                        {images.map((img, imgindex) => {
+                            return (
+                                <img
+                                    style={
+                                        currentIndex === imgindex
+                                            ? carouselStyle
+                                            : undefined
+                                    }
+                                    onClick={() => {
+                                        setCurrentIndex(imgindex);
+                                    }}
+                                    src={img.thumbnail}
+                                    className="thumbnail"
+                                    key={imgindex}
+                                    alt=""
+                                />
+                            );
+                        })}
+                    </div>
                 </div>
             )}
         </>

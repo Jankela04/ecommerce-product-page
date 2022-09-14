@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap");
 * {
+  overflow: hidden;
   margin: 0;
   padding: 0;
 }
@@ -386,17 +387,28 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .navbar .left-side-nav .desktop-nav-items .dsk-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 6em;
     color: gray;
     text-decoration: none;
     font-family: "Kumbh Sans", sans-serif;
     font-weight: 700;
     margin-inline: 0.5em;
     cursor: pointer;
+    border: 3px solid #fff;
   }
   .navbar .left-side-nav .desktop-nav-items .dsk-item:hover {
-    color: black;
+    border-bottom: 3px solid #ff7d1a;
   }
   .navbar .right-side-nav {
     display: -webkit-box;
@@ -418,7 +430,7 @@
     border-color: #ff7d1a;
   }
   .navbar .right-side-nav .cart-item-count {
-    top: 22px;
+    top: 46px;
     right: 180px;
   }
   .cart {
@@ -554,6 +566,10 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -562,5 +578,76 @@
             justify-content: center;
     background-color: rgba(0, 0, 0, 0.5);
   }
+  .desktop-carousel .carousel-exit {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin: 0 0 1em 30em;
+    -webkit-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(310deg) brightness(10000%) contrast(103%);
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(310deg) brightness(10000%) contrast(103%);
+  }
+  .desktop-carousel .carousel-exit:hover {
+    -webkit-filter: invert(63%) sepia(41%) saturate(4802%) hue-rotate(347deg) brightness(101%) contrast(101%);
+            filter: invert(63%) sepia(41%) saturate(4802%) hue-rotate(347deg) brightness(101%) contrast(101%);
+  }
+  .desktop-carousel .carousel {
+    border-radius: 1em;
+    overflow: visible;
+    position: relative;
+    background-size: contain;
+    width: 500px;
+    height: 500px;
+    z-index: 5;
+  }
+  .desktop-carousel .carousel .arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: white;
+  }
+  .desktop-carousel .carousel .arrow:hover > img {
+    -webkit-filter: invert(63%) sepia(41%) saturate(4802%) hue-rotate(347deg) brightness(101%) contrast(101%);
+            filter: invert(63%) sepia(41%) saturate(4802%) hue-rotate(347deg) brightness(101%) contrast(101%);
+  }
+  .desktop-carousel .carousel .right-arrow {
+    right: -1.5em;
+  }
+  .desktop-carousel .carousel .left-arrow {
+    left: -1.5em;
+  }
+  .desktop-carousel .carousel-thumbnail {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: visible;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    gap: 1em;
+  }
+  .desktop-carousel .carousel-thumbnail img {
+    width: 100px;
+    margin-top: 2em;
+    border-radius: 1em;
+    cursor: pointer;
+  }
 }
+
+/*
+*/
 /*# sourceMappingURL=app.css.map */
